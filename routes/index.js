@@ -8,11 +8,9 @@ var User = require('../models/user');
 var Comment = require('../models/comment');
 const yesno = require('yesno');
 var ObjectId = require('mongodb').ObjectID;
-// const cart = require('../models/cart');
 
 
 
-/* GET home page. */
 router.get('/',function(req, res, next) {
   var successMsg = req.flash('success')[0];
 
@@ -359,16 +357,17 @@ router.get('/deletecomment/:username/:id', isLoggedIn, function (req, res, next)
   var x = req.params.id;
   var y = req.params.username;
   
-  if(req.user.username!= y){
-    req.flash('error', 'you can not delete other users comment!');
-    res.redirect('back');
-  }
-  else if(req.user.username=="Admin"){
+
+  if(req.user.username=="Admin"){
     Comment.remove({ _id: x},function(err){
       if(err) res.json(err);
       req.flash('success', 'Sucessfully Delete!');
         res.redirect('back');
     });
+  }
+  else if(req.user.username != y){
+    req.flash('error', 'you can not delete other users comment!');
+    res.redirect('back');
   }
   else{
   Comment.remove({ _id: x},function(err){
@@ -450,7 +449,6 @@ router.get('/addcomment', isLoggedIn,function (req, res, next) {
 
 router.post('/addcomment', isLoggedIn,function (req, res, next) {
     var productname = req.params.title;
-    // var productid = req.params.id;
     
   Product.find({title: productname}, function(err, docs) {
     console.log(req.user);
