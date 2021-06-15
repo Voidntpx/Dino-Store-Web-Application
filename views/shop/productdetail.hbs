@@ -1,0 +1,126 @@
+<div class="container">
+<div>
+
+<div class="col-md-12">
+    <p></p>
+{{# each products}}
+    <div class="row" style="border: 1px solid #dddddd;">
+    <div class="col-md-6" id="setcenter">
+    <img src="{{ this.imagePath }}" alt="" class="rounded" width="100%" height="90%">
+    </div>
+    <div class="col-md-6" id="setcenter">
+    <h1>{{this.title}} <a href="/addtowishlist2/{{this.title}}/{{this.price}}/{{this.tag}}/{{this._id}}"><i class="far fa-heart" style="color: rgb(197, 124, 164);"></i></a></h1>
+    <hr>
+    <br><br><br><br>
+    <p>description: {{this.description}}</p>
+    <p>type: {{this.type}}</p>
+    <br><br><br><br>
+    <p style="font-size: 20px;"><strong>Price: {{this.price}}</strong></p>
+     <br>
+    <div class="row">
+       
+    <div class="col-md-6"> 
+        <a href="/buynow/{{this._id}}" class="btn btn-success" style="background-color: #2e86de;">Buy Now</a>
+    </div>
+    <div class="col-md-6">
+       <a href="/additemtocart3/{{this._id}}" class="btn btn-success">Add to cart</a>
+       </div>
+   </div>
+
+<hr>
+</div>
+<p></p>
+<div class="col-md-6" style="width:100%">
+    <br>
+        <h1>Product details</h1>
+        <br>
+        <hr>
+        <p>{{this.selldescription}}</p>
+    </div>
+
+    </div>
+
+
+    
+</div>
+{{/each}}
+
+
+
+<div class="container">
+    <div class="col-md-8">
+      <section class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="posts-tab" data-toggle="tab" role="tab" aria-controls="posts" aria-selected="true">
+                                    Comments
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                                <form action="/addcomment" method="post" id="checkout-form">
+                                <div class="form-group">
+                                    <label class="sr-only" for="message">post</label>
+                                    <textarea class="form-control" id="message" rows="3" placeholder="What are you thinking..." name="message"></textarea>
+                                    {{# each products}}
+                                    <input type="hidden" id="productid" class="form-control" required name="productid" value="{{this._id}}">
+                                    <input type="hidden" id="producttitle" class="form-control" required name="producttitle" value="{{this.title}}">
+                                    {{/each}}
+                                </div>
+                                <br>
+                                <button id="commentbut" type="submit" class="btn btn-primary">Add</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div>
+
+                        	
+                        </div>
+                    </div>
+                </section>
+                </div>
+     <div class="col-sm-4 col-md-8">
+        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            <center>{{ successMsg }}</center>
+        </div>
+            <div id="fail" class="alert alert-danger" {{#if nofailMessages}}hidden{{/if}}>
+            <center>{{ failMsg }}</center>
+        </div>
+    </div>
+
+    
+                 {{# each comments}}
+            <div class="row">
+    <div class="col-md-8">
+        <div class="media g-mb-30 media-comment" style="border: 1px solid #dddddd;">
+            
+            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+              <div class="g-mb-15">
+                <h5 class="h5 g-color-gray-dark-v1 mb-0">{{this.username}}</h5>
+                <span class="g-color-gray-dark-v4 g-font-size-12">{{this.dated}}</span>
+              </div>
+        <hr>
+              <p style="color:black;">{{this.message}}</p>
+                <a href="/deletecomment/{{this.username}}/{{this._id}}" style="margin-left: 100%; color:red"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+                 {{/each}}
+
+
+<br><br>
+</div>
+</div>
+    </div>
+    </div>
+
+    

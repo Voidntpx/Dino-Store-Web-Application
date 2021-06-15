@@ -1,0 +1,39 @@
+ 
+ <div  id="freewall">
+   <br><br><br>
+
+ <div class="container" style="background-color: white; border: 1px solid #dddddd; padding:20px">
+<div class="row">
+    <div class="col-md-12">
+          
+<h1>User Profile</h1>
+{{# each users}}
+<br>
+<h3>Welcome {{this.username}}</h3>
+{{/each}}
+<br>
+<hr>
+<h1>History</h1>
+{{# each orders}}
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    {{# each this.items}}
+    <li class="list-group-item">
+        <span class="badge badge-info">{{this.price}}</span>
+        {{this.item.title}} | {{this.qty}} units
+    </li>
+    {{/each}}
+  </ul>
+    <div class="card-footer">
+     <span class="g-color-gray-dark-v4 g-font-size-12">{{this.dated}}</span> <br>
+    Total Price: ${{ this.cart.totalPrice }}
+     </div>
+    
+    </div>
+    <h1></h1>
+ {{/each}}
+    </div>
+    </div>
+    <br>
+    </div>
+    </div>

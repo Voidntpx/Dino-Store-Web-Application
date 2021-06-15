@@ -1,0 +1,62 @@
+ <div id="freewall">
+ <div class="container" >
+<br><br><br>
+<div class="row" id="dinowall">
+    
+    <div id="signin" class="col-md-4 col-md-offset-4">
+     
+        <div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="https://mir-s3-cdn-cf.behance.net/projects/404/8919557.5479de4ba48b5.jpg" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+                
+				<div class="d-flex justify-content-center form_container">
+                    
+					<form action="/user/signup" method="post">
+                    <h2>Register</h2>
+						<div class="input-group mb-3">
+			
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+						
+							<input type="text" id="username" name="username" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+					
+							<input type="password" id="password" name="password" class="form-control input_pass" value="" placeholder="password">
+						</div>
+                           {{#if hasErrors}}
+            <div class="alert alert-danger">
+                {{# each messages }}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+                            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                            
+							<div class="d-flex justify-content-center mt-3 login_container">
+
+				 	<button type="submit" name="button" class="btn login_btn">Sign Up</button>
+
+				   </div>
+					</form>
+				</div>
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Did you already have an account? <a href="signin" class="ml-2">Sign In</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    </div>
+</div>
+</div>

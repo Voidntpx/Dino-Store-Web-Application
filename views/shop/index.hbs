@@ -1,0 +1,131 @@
+
+<div class="container" style="width:100%"> 
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <img src="https://www.img.in.th/images/f09abd10ade683dbf1d31ce1194443d1.jpg" class="d-block w-100" alt="..." >
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Welcome to DinoShop!</h5>
+        <p>Please don't feel serious when you meet a dinosaurs.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="https://www.img.in.th/images/cc5b035b530bba9ceb2a594d38220f04.jpg" class="d-block w-100" alt="..." >
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Black Friday Sale!!!</h5>
+        <p>But Friday is skyblue not black ._.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="https://www.ktc.co.th/pub/media/Promotion/Shopping/shopping-department-store-shopping-complex-chat-and-shop-promo.jpg" class="d-block w-100" alt="..." >
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+<br>
+
+<div class="col-md-12" >
+<div class="container">
+  <hr>
+  <br><h1>Newest Products</h1><br>
+      {{# each products}}
+      
+        <div class="row">
+          
+       {{# each this }}
+
+          <div class="col-md-3 col-sm-6">
+            <div class="product-grid2">
+                <div class="product-image2">
+                    <a href="/productdetail/{{this._id}}">
+                        <img class="pic-1" src="{{this.imagePath}}">
+                        <img class="pic-2" src="{{this.imagePath}}">
+                    </a>
+                    <ul class="social">
+                        <li><a href="/addtowishlist2/{{this.title}}/{{this.price}}/{{this.tag}}/{{this._id}}" data-tip="Add to Wishlist" style="background-color: pink;"><i class="far fa-heart"></i></a></li>
+                        <p></p>
+                        <li><a href="/additemtocart2/{{this._id}}" data-tip="Add to Cart" style="background-color: #66e21f;"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <a class="add-to-cart" href="/productdetail/{{this._id}}">View product</a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="/productdetail/{{this.title}}">{{this.title}}</a></h3>
+                    <span class="price"><h4>${{this.price}}</h4></span>
+                </div>
+            </div>
+        </div>
+     
+   {{/each}}
+    </div>
+      {{/each}}
+      <hr><br>
+        <h1>CATEGORY</h1>
+        <br>
+            <div class="row">
+          
+            
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid2">
+                <div class="product-image2">
+                    <a href="/allproduct">
+                        <img class="pic-1" src="https://mir-s3-cdn-cf.behance.net/projects/404/8919557.5479de4ba48b5.jpg">
+                        <img class="pic-2" src="https://i.pinimg.com/originals/a8/24/7b/a8247bc88415e879a26baa2083181345.png">
+                    </a>
+                  
+                    <a class="add-to-cart" href="">Go to all product</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid2">
+              <div class="product-image2">
+                  <a href="dinosaur">
+                      <img class="pic-1" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/161ef683854459.5d4988e80659d.jpg">
+                      <img class="pic-2" src="https://cdn.dribbble.com/users/2771194/screenshots/5685856/tnc_logodesignchallenge_day35_dinosaur-amusement-par_4x.png?compress=1&resize=400x300">
+                  </a>
+                  <a class="add-to-cart" href="meat">Looking for a dinosours?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid2">
+                <div class="product-image2">
+                    <a href="food">
+                        <img class="pic-1" src="https://cdn.dribbble.com/users/208716/screenshots/3695910/13.jpg?compress=1&resize=400x300">
+                        <img class="pic-2" src="https://cdn.dribbble.com/users/208716/screenshots/3705674/26.jpg">
+                    </a>
+                    <a class="add-to-cart" href="">Looking for a food?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid2">
+                <div class="product-image2">
+                    <a href="toy">
+                        <img class="pic-1" src="https://i.pinimg.com/originals/3d/8f/bc/3d8fbcd96541db93bb4273ff75b28c80.jpg">
+                        <img class="pic-2" src="https://i.pinimg.com/originals/c9/d9/c3/c9d9c3b0743eb867f86e85a265982699.png">
+                    </a>
+                    <a class="add-to-cart" href="">Looking for a toys?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+
+      <br><br><br><br><br><br>

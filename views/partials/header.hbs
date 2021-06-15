@@ -1,0 +1,54 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark col-md-12 col-12">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fas fa-drumstick-bite"></i> DinoShop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/allproduct">All products</a>
+        </li>
+       
+      </ul>
+    </div>
+
+ <form class="d-flex" method="GET" action="/searchbar">
+        <input class="form-control me-2" name="search" type="search" placeholder="Type Anything?" aria-label="search">
+        <button class="btn btn-outline-success" type="submit" value="Search">Search</button>
+      </form>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/cart"><i class="fas fa-shopping-cart"> Cart
+            <span class="badge badge-black">{{ session.cart.totalQty }}</span>
+          </i></a>
+          </li>
+       <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/wishlist"><i class="far fa-heart" style="color: plum;"> Wishlist
+          </i></a>
+          </li>
+
+       {{# if login }}
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <i class="fa fa-user" aria-hidden="true"></i> Management
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+             <li><a class="dropdown-item" href="/user/profile"><i class="far fa-user"></i> User Account</a></li>
+             <li><hr class="dropdown-divider"></li>
+             <li><a class="dropdown-item" href="/user/seller"><i class="fas fa-dollar-sign"></i> Become a Seller</a></li>
+             <li><hr class="dropdown-divider"></li>
+             <li><a class="dropdown-item" href="/productmanagement"><i class="fas fa-border-all"></i> Products</a></li>
+             <li><hr class="dropdown-divider"></li>
+             <li><a class="dropdown-item" href="/user/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+            {{ else }}
+             <li id="member"><a class="dropdown-item" href="/user/signup"><i class="far fa-registered"></i> Register?</a></li>
+             <li id="member"><a class="dropdown-item" href="/user/signin"><i class="fas fa-sign-in-alt"></i> Login?</a></li>
+             {{/if}}
+          </ul>
+        </li>
+  </div>
+</nav>
+<br><br>
