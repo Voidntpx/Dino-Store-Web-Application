@@ -10,7 +10,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">Image</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Product Details</th>
@@ -24,7 +24,7 @@
 
     {{#each products}}
     <tr class="table-light">
-      <td>{{this._id}}</td>
+      <td><img src="{{this.imagePath}}" alt="hi" style="width:110px;height:100px;"></td>
       <td>{{this.title}}</td>
       <td>{{this.description}}</td>
       <td>{{this.selldescription}}</td>
